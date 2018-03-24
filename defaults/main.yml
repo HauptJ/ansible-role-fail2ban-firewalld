@@ -1,7 +1,5 @@
 # Default variable settings
 
-##### Fail2Ban #####
-
 # fail2ban settings
 f2b_whitelist_ip: 8.8.8.8
 f2b_destemail: bob@example.com
