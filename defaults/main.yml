@@ -4,3 +4,5 @@
 f2b_whitelist_ip: 8.8.8.8
 f2b_destemail: bob@example.com
 f2b_sender: alice@srv.example.com
+cf_email: alice@srv.example.com
+cf_key: key
