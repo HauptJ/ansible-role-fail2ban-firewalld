@@ -1,0 +1,24 @@
+# @Author: Haupt Joshua
+# @Date:   26-Mar-2018
+# @Email:  josh@hauptj.com
+# @Filename: main.yml
+# @Last modified by:   Haupt Joshua
+# @Last modified time: 11-Apr-2018
+
+---
+galaxy_info:
+  author: Joshua Haupt
+  description: Installs and configures Firewalld and Fail2Ban
+  company: hauptj.com
+  license: Apache 2.0
+  min_ansible_version: 2.3
+  platforms:
+  - name: EL
+    versions:
+    - 7
+  galaxy_tags:
+    - security
+    - ssh
+dependencies:
+  - role: geerlingguy.repo-epel
+  - role: geerlingguy.repo-remi
