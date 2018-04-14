@@ -17,3 +17,6 @@ cf_key: key
 f2b_bantime: 3600
 f2b_findtime: 600
 f2b_maxretry: 5
+
+# CI test, this should only be set to true for testing
+f2b_ci_test: true

@@ -21,4 +21,6 @@ galaxy_info:
     - ssh
 dependencies:
   - role: geerlingguy.repo-epel
+    when: f2b_ci_test == true
   - role: geerlingguy.repo-remi
+    when: f2b_ci_test == true
