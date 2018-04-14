@@ -59,14 +59,14 @@ ignoreip = 127.0.0.1/8 {{ f2b_whitelist_ip }}
 ignorecommand =
 
 # "bantime" is the number of seconds that a host is banned.
-bantime  = 3600
+bantime  = {{ f2b_bantime }}
 
 # A host is banned if it has generated "maxretry" during the last "findtime"
 # seconds.
-findtime  = 600
+findtime  = {{ f2b_findtime }}
 
 # "maxretry" is the number of failures before a host get banned.
-maxretry = 5
+maxretry = {{ f2b_maxretry }}
 
 # "backend" specifies the backend used to get files modification.
 # Available options are "pyinotify", "gamin", "polling", "systemd" and "auto".

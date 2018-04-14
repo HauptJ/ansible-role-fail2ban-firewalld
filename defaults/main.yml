@@ -1,8 +1,22 @@
-# Default variable settings
+# @Author: Haupt Joshua
+# @Date:   26-Mar-2018
+# @Email:  josh@hauptj.com
+# @Filename: main.yml
+# @Last modified by:   Haupt Joshua
+# @Last modified time: 07-Apr-2018
 
-##### Fail2Ban #####
+# Default variable settings
 
 # fail2ban settings
 f2b_whitelist_ip: 8.8.8.8
 f2b_destemail: bob@example.com
 f2b_sender: alice@srv.example.com
+cf_email: alice@srv.example.com
+cf_key: key
+
+f2b_bantime: 3600
+f2b_findtime: 600
+f2b_maxretry: 5
+
+# CI test, this should only be set to true for testing
+f2b_ci_test: true
