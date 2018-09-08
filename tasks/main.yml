@@ -38,3 +38,25 @@
     name: fail2ban
     state: started
     enabled: yes
+
+- name: open ports with firewalld
+  firewalld:
+    port: "{{ item }}"
+    permanent: true
+    state: enabled
+    immediate: yes
+  ignore_errors: yes
+  with_items: "{{ open_ports }}"
+  tags:
+    - open_ports
+
+- name: close ports with firewalld
+  firewalld:
+    port: "{{ item }}"
+    permanent: true
+    state: disabled
+    immediate: yes
+  ignore_errors: yes
+  with_items: "{{ close_ports }}"
+  tags:
+    - close_ports
