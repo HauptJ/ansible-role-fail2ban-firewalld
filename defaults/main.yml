@@ -21,3 +21,7 @@ f2b_maxretry: 5
 
 # CI test, this should only be set to true for testing
 f2b_ci_test: true
+
+# ports to open
+open_ports:
+- 443/tcp
