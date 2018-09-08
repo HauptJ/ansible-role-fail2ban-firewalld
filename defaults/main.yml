@@ -24,4 +24,10 @@ f2b_ci_test: true
 
 # ports to open
 open_ports:
+- 80/tcp
+- 443/tcp
+
+# ports to close
+clsoe_ports:
+- 80/tcp
 - 443/tcp
