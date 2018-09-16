@@ -31,3 +31,5 @@ Ansible role to install fail2ban with firewalld on CentOS 7
 | f2b_bantime                       | 3600                                      | IP ban duration in sec                  |
 | f2b_findtime                      | 600                                       | time period to count retries in sec     |
 | f2b_maxretry                      | 5                                         | Amount of failed attempts in f2b_findtime before ban |
+| open_ports                        | 80/tcp, 443/tcp                           | Ports to open                           |
+| close_ports                       | 80/tcp, 443/tcp                           | Ports to close                          |
