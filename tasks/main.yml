@@ -1,20 +1,23 @@
 ---
 # Tasks to install firewalld and fail2ban
 
-- name: Install Ipset
+- name: Install Ipset, FirewallD, and Fail2Ban with FirewallD on CentOS
   yum:
-    name: ipset
+    name:
+      - ipset
+      - firewalld
+      - fail2ban-firewalld
     state: latest
+    when: ansible_distribution == 'CentOS'
 
-- name: Install Firewalld
+- name: Install Ipset, FirewallD, and Fail2Ban with FirewallD on Fedora
   yum:
-    name: firewalld
+    name:
+      - ipset
+      - firewalld
+      - fail2ban-firewalld
     state: latest
-
-- name: Install Fail2ban with FirewallD
-  yum:
-    name: fail2ban-firewalld
-    state: latest
+    when: ansible_distribution == 'CentOS'
 
 - name: Copy fail2ban.local configuration
   template:
@@ -45,7 +48,6 @@
     permanent: true
     state: enabled
     immediate: yes
-  # ignore_errors: yes
   with_items: "{{ open_ports }}"
   tags:
     - open_ports
@@ -56,7 +58,6 @@
     permanent: true
     state: disabled
     immediate: yes
-  # ignore_errors: yes
   with_items: "{{ close_ports }}"
   tags:
     - close_ports
