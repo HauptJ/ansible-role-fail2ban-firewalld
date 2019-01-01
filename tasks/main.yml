@@ -34,12 +34,6 @@
 - name: Firewalld service state
   service:
     name: firewalld
-    state: enabled
-    enabled: yes
-
-- name: Firewalld service state
-  service:
-    name: firewalld
     state: started
     enabled: yes
 
