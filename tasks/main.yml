@@ -16,6 +16,7 @@
       - ipset
       - firewalld
       - fail2ban-firewalld
+      - python-firewalld
     state: latest
   when: ansible_distribution == 'Fedora'
 
