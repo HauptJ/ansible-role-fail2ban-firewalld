@@ -17,7 +17,7 @@
       - firewalld
       - fail2ban-firewalld
     state: latest
-  when: ansible_distribution == 'CentOS'
+  when: ansible_distribution == 'Fedora'
 
 - name: Copy fail2ban.local configuration
   template:
