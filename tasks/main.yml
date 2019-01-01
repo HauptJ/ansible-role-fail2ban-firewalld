@@ -16,7 +16,7 @@
       - ipset
       - firewalld
       - fail2ban-firewalld
-      - python-firewall
+      - python3-firewall
       - cockpit
     state: latest
   when: ansible_distribution == 'Fedora'
