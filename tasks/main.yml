@@ -8,7 +8,7 @@
       - firewalld
       - fail2ban-firewalld
     state: latest
-    when: ansible_distribution == 'CentOS'
+  when: ansible_distribution == 'CentOS'
 
 - name: Install Ipset, FirewallD, and Fail2Ban with FirewallD on Fedora
   dnf:
@@ -17,7 +17,7 @@
       - firewalld
       - fail2ban-firewalld
     state: latest
-    when: ansible_distribution == 'CentOS'
+  when: ansible_distribution == 'CentOS'
 
 - name: Copy fail2ban.local configuration
   template:
