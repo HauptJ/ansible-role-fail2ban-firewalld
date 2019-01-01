@@ -16,6 +16,8 @@
       - ipset
       - firewalld
       - fail2ban-firewalld
+      - python-firewall
+      - cockpit
     state: latest
   when: ansible_distribution == 'Fedora'
 
@@ -28,7 +30,12 @@
   template:
     src: jail.local
     dest: /etc/fail2ban/
-  notify: restart firewalld
+
+- name: Firewalld service state
+  service:
+    name: firewalld
+    state: enabled
+    enabled: yes
 
 - name: Firewalld service state
   service:
@@ -41,6 +48,7 @@
     name: fail2ban
     state: started
     enabled: yes
+  notify: restart firewalld
 
 - name: open ports with firewalld
   firewalld:
