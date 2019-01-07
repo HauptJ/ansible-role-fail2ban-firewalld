@@ -1,25 +1,14 @@
 ---
 # Tasks to install firewalld and fail2ban
 
-- name: Install Ipset, FirewallD, and Fail2Ban with FirewallD on CentOS
+- name: Install Ipset, Firewalld, Fail2ban with FirewallD
   yum:
     name:
       - ipset
       - firewalld
       - fail2ban-firewalld
+      - libselinux-python
     state: latest
-  when: ansible_distribution == 'CentOS'
-
-- name: Install Ipset, FirewallD, and Fail2Ban with FirewallD on Fedora
-  dnf:
-    name:
-      - ipset
-      - firewalld
-      - fail2ban-firewalld
-      - python3-firewall
-      - cockpit
-    state: latest
-  when: ansible_distribution == 'Fedora'
 
 - name: Copy fail2ban.local configuration
   template:
@@ -30,6 +19,7 @@
   template:
     src: jail.local
     dest: /etc/fail2ban/
+  notify: restart firewalld
 
 - name: Firewalld service state
   service:
@@ -42,7 +32,6 @@
     name: fail2ban
     state: started
     enabled: yes
-  notify: restart firewalld
 
 - name: open ports with firewalld
   firewalld:
@@ -50,6 +39,7 @@
     permanent: true
     state: enabled
     immediate: yes
+  ignore_errors: yes
   with_items: "{{ open_ports }}"
   tags:
     - open_ports
@@ -60,6 +50,7 @@
     permanent: true
     state: disabled
     immediate: yes
+  ignore_errors: yes
   with_items: "{{ close_ports }}"
   tags:
     - close_ports
