@@ -1,7 +1,7 @@
 ---
 # Tasks to install firewalld and fail2ban
 
-- name: Install Ipset, Firewalld, Fail2ban with FirewallD
+- name: Install Ipset, Firewalld, Fail2ban with FirewallD - RHEL
   yum:
     name:
       - ipset
@@ -9,6 +9,17 @@
       - fail2ban-firewalld
       - libselinux-python
     state: latest
+  when: ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS'
+
+- name: Install Ipset, Firewalld, Fail2ban with FirewallD - Fedora
+  dnf:
+    name:
+      - ipset
+      - firewalld
+      - fail2ban-firewalld
+      - libselinux-python
+    state: latest
+  when: ansible_distribution == 'Fedora'
 
 - name: Copy fail2ban.local configuration
   template:

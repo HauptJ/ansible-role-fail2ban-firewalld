@@ -9,6 +9,8 @@ env:
     version: 28
   - distribution: fedora
     version: 29
+  - distribution: fedora
+    version: 30
 
 services:
   - docker
